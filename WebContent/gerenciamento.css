@@ -1,0 +1,26 @@
+.funcionalidade {
+    display: contents;
+}
+
+.escolha {
+    text-align: center;
+}
+
+button {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 12px;
+    font-size: 16px;
+    background-color: #48abe0;
+    color: white;
+    border: none;
+    box-shadow: 0 2px 4px darkslategray;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+button:active {
+    background-color: #48abe0;
+    box-shadow: 0 0 2px darkslategray;
+    transform: translateY(2px);
+  }

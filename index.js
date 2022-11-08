@@ -1,5 +1,4 @@
 const express = require("express"); // Eu odeio express 🤮
-var notas = require('./notas')
 
 const app = express();
 
@@ -16,12 +15,13 @@ app.listen(4000, function(err) {
         console.log("Servidor Iniciado.");
     }
 })
+
 app.get('/', function(req,res) {
     res.render("inicio");
 });
 
-app.get('/nota/', function(req,res) {
-    res.render("nota");
+app.get('/gerenciamento', function(req,res) {
+    res.render("gerenciamento");
 });
 
 app.get('/sobre', function(req,res) {
