@@ -16,3 +16,14 @@ app.listen(4000, function(err) {
         console.log("Servidor Iniciado.");
     }
 })
+app.get('/', function(req,res) {
+    res.render("inicio");
+});
+
+app.get('/nota/', function(req,res) {
+    res.render("nota");
+});
+
+app.get('/sobre', function(req,res) {
+    res.render("sobre");
+});

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Notepad</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="gerenciamento.css">
+</head>
+
+<body>
+
+  <div class="nav-bar">
+    <a href="/">Inicio</a>
+    <a href="/gerenciamento" style="color: #007ACC">Gerenciamento</a>
+    <a href="/nota">Notas</a>
+    <a href="/edicoes">Edições</a>
+    <a href="/frequencia">Frequência</a>
+    <a href="/sobre">Sobre</a>
+  </div>
+
+  <div class="content">
+    <div class="funcionalidade">
+      <input id="id" class="escolha" placeholder="Digite um id" type="number" min="1">
+      <div>
+        <button id="edition">Editar</button>
+        <button>Deletar</button>
+      </div>
+    </div>
+    <ul>
+      <%if(typeof notas !=='undefined' && notas.length> 0){%>
+        <% for(let i=0; i < notas.length; i++){%>
+          <li>id <%=i+1%> - Nota: <%=notas[i].substring(0, 5)%>...</li>
+          <%} %>
+            <%}%>
+    </ul>
+  </div>
+</body>
+
+
+
+</html>
