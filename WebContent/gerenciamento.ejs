@@ -57,10 +57,11 @@
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        text: id.value
+        id: id.value
       })
-    })
-    document.location.reload();
+    }).finally(
+      window.location.reload()
+    )
   }
 
 </script>
