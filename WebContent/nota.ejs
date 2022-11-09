@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Notepad</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="nota.css">
+</head>
+
+<body>
+
+  <div class="nav-bar">
+    <a href="/">Inicio</a>
+    <a href="/gerenciamento">Gerenciamento</a>
+    <a href="/nota" style="color: #007ACC">Notas</a>
+    <a href="/agenda">Agenda</a>
+    <a href="/cores">Cores</a>
+    <a href="/sobre">Sobre</a>
+  </div>
+
+  <div class="content">
+    <div class="funcionalidade">
+      <%if(typeof id !=='undefined'){%>
+        <button id="id" value="<%=id%>" disabled hidden></button>
+        <%}%>
+      <button class="clickable" id="save">Salvar</button>
+    </div>
+    <div class="bloco-notas">
+      <%if(typeof texto !=='undefined' ){%>
+        <textarea id="text" placeholder="Escreva seu texto aqui!" autofocus><%=texto%></textarea>
+        <%}else{%>
+          <textarea id="text" placeholder="Escreva seu texto aqui!" autofocus></textarea>
+          <%}%>
+    </div>
+  </div>
+
+  <script>
+    const save = document.getElementById('save');
+    
+    save.addEventListener('click', saveText);
+
+    function saveText(e) {
+      var id = document.getElementById('id');
+      if (id == null) {
+        fetch('/save', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            text: document.getElementById('text').value
+          })
+        })
+      } else {
+        fetch('/save', {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            id: id.value,
+            text: document.getElementById('text').value
+          })
+        })
+      }
+      alert("Nota salva!")
+    }
+  </script>
+
+</body>
+
+</html>

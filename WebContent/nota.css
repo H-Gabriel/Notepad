@@ -1,0 +1,45 @@
+.funcionalidade {
+    height: 5%;
+    display: flex;
+    align-items: center;
+}
+
+.clickable {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 12px;
+    font-size: 16px;
+    background-color: #48abe0;
+    color: white;
+    border: none;
+    box-shadow: 0 2px 4px darkslategray;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+button:active {
+    background-color: #48abe0;
+    box-shadow: 0 0 2px darkslategray;
+    transform: translateY(2px);
+  }
+  
+.bloco-notas {
+    width: 95%;
+    height: 80%;
+    background-color: #252526;
+    margin: 1%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+textarea {
+    resize: none;
+    background-color: inherit;
+    color: white;
+    width: 98%;
+    height: 97%;
+    outline: none;
+    border: none;
+    font-size: 14px;
+}
