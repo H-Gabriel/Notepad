@@ -1,5 +1,5 @@
 const express = require("express"); // Eu odeio express 🤮
-var notas = require('./notasManager')
+var manager = require('./notasManager')
 
 const app = express();
 
@@ -23,17 +23,25 @@ app.get('/', function(req,res) {
     res.render("inicio");
 });
 
+app.get('/gerenciamento', function(req,res) {
+    res.render("gerenciamento", {notas: manager.getNotas()});
+});
+
 app.get('/nota/', function(req,res) {
     var idNota = req.query["id"];
     if(idNota) {
-        res.render("nota", {texto: notas.getNotaById(idNota), id: idNota});
+        res.render("nota", {texto: manager.getNotaById(idNota), id: idNota});
     } else {
         res.render("nota");
     }
 });
 
-app.get('/gerenciamento', function(req,res) {
-    res.render("gerenciamento");
+app.get('/edicoes', function(req, res) {
+    res.render("edicoes");
+});
+
+app.get('/frequencia', function(req, res) {
+    res.render("frequencia");
 });
 
 app.get('/sobre', function(req,res) {
@@ -43,9 +51,13 @@ app.get('/sobre', function(req,res) {
 //
 
 app.post('/save', function(req, res) {
-    notas.adicionarNota(req.body.text);
+    manager.adicionarNota(req.body.text);
 })
 
 app.patch('/save', function(req, res) {
-    notas.updateNotaById(req.body.id, req.body.text);
+    manager.updateNotaById(req.body.id, req.body.text);
+})
+
+app.delete('/delete', function(req, res) {
+    manager.deletarNota(req.body.id);
 })

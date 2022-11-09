@@ -25,19 +25,44 @@
       <input id="id" class="escolha" placeholder="Digite um id" type="number" min="1">
       <div>
         <button id="edition">Editar</button>
-        <button>Deletar</button>
+        <button id="delete">Deletar</button>
       </div>
     </div>
     <ul>
       <%if(typeof notas !=='undefined' && notas.length> 0){%>
         <% for(let i=0; i < notas.length; i++){%>
-          <li>id <%=i+1%> - Nota: <%=notas[i].substring(0, 5)%>...</li>
+          <li style="color: white">id <%=i+1%> - Nota: <%=notas[i].substring(0, 5)%>...</li>
           <%} %>
             <%}%>
     </ul>
   </div>
 </body>
 
+<script>
+  const edition = document.getElementById('edition');
+  const removal = document.getElementById('delete');
 
+  edition.addEventListener('click', openNote);
+  removal.addEventListener('click', deleteNote)
+
+  function openNote(e) {
+    window.location.href = `/nota?id=${document.getElementById('id').value}`;
+  }
+
+  function deleteNote(e) {
+    var id = document.getElementById('id');
+    fetch('/delete', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        text: id.value
+      })
+    })
+    document.location.reload();
+  }
+
+</script>
 
 </html>
