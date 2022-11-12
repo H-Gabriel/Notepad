@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="functions.css">
 </head>
 
 <body>
@@ -15,9 +16,45 @@
     <a href="/gerenciamento">Gerenciamento</a>
     <a href="/nota">Notas</a>
     <a href="/edicoes" style="color: #007ACC">Edições</a>
-    <a href="/frequencia">Frequência</a>
+    <a href="/dados">Dados</a>
     <a href="/sobre">Sobre</a>
   </div>
+
+  <div class="content">
+    <div class="funcionalidade">
+      <input id="id" class="escolha" placeholder="Digite um id" type="number" min="1">
+      <div>
+        <button id="caps">CAIXA ALTA</button>
+        <button id="caixabaixa">caixa baixa</button>
+      </div>
+    </div>
+    <ul>
+      <%if(typeof notas !=='undefined' && notas.length> 0){%>
+        <% for(let i=0; i < notas.length; i++){%>
+          <li style="color: white">id <%=i+1%> - Nota: <%=notas[i].substring(0, 5)%>...</li>
+          <%} %>
+            <%}%>
+    </ul>
+  </div>
+</body>
+
+<script>
+  const caps = document.getElementById('caps');
+  const caixabaixa = document.getElementById('caixabaixa');
+
+  caps.addEventListener('click', doUpper);
+  caixabaixa.addEventListener('click', doLower)
+
+  function doUpper(e) {
+    console.log("chamar uma função para editar - 1")
+  }
+
+  function doLower(e) {
+    var id = document.getElementById('id');
+    console.log("chamar uma função para editar - 2")
+  }
+
+</script>
 
 </body>
 </html>

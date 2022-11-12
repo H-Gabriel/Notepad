@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="gerenciamento.css">
+  <link rel="stylesheet" href="functions.css">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
     <a href="/gerenciamento" style="color: #007ACC">Gerenciamento</a>
     <a href="/nota">Notas</a>
     <a href="/edicoes">Edições</a>
-    <a href="/frequencia">Frequência</a>
+    <a href="/dados">Dados</a>
     <a href="/sobre">Sobre</a>
   </div>
 
@@ -60,10 +60,11 @@
         id: id.value
       })
     }).finally(
-      window.location.reload()
+      setTimeout(() => {
+        window.location.reload()
+      }, 25)
     )
   }
-
 </script>
 
 </html>

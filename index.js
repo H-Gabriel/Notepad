@@ -37,11 +37,11 @@ app.get('/nota/', function(req,res) {
 });
 
 app.get('/edicoes', function(req, res) {
-    res.render("edicoes");
+    res.render("edicoes", {notas: manager.getNotas()});
 });
 
-app.get('/frequencia', function(req, res) {
-    res.render("frequencia");
+app.get('/dados', function(req, res) {
+    res.render("dados", {dados: manager.dados()});
 });
 
 app.get('/sobre', function(req,res) {

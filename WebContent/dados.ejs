@@ -15,8 +15,14 @@
     <a href="/gerenciamento">Gerenciamento</a>
     <a href="/nota">Notas</a>
     <a href="/edicoes">Edições</a>
-    <a href="/frequencia" style="color: #007ACC">Frequência</a>
+    <a href="/dados" style="color: #007ACC">Dados</a>
     <a href="/sobre">Sobre</a>
+  </div>
+
+  <div class="content" style="color:white">
+    <%if(typeof dados !=='undefined'){%>
+    <h3><%=dados%></h3>
+    <%}%>
   </div>
 
 </body>
