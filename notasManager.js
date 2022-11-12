@@ -28,6 +28,12 @@ function dados() {
     let returnStatement = `Existem ${notas.length} notas registradas, totalizando ${caracteres} caracteres escritos`;
     return returnStatement;
 }
+function upperCaseText(id){
+notas[id-1] = notas[id-1].toUpperCase();
+}
+function lowerCaseText(id){
+    notas[id-1] = notas[id-1].toLowerCase();
+    }
 
 module.exports = {
     getNotas,
@@ -35,7 +41,9 @@ module.exports = {
     updateNotaById,
     adicionarNota,
     deletarNota,
-    dados
+    dados,
+    upperCaseText,
+    lowerCaseText
 }
 
 // Se você estiver lendo isso eu odeio javascript do fundo do meu coração

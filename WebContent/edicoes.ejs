@@ -46,12 +46,39 @@
   caixabaixa.addEventListener('click', doLower)
 
   function doUpper(e) {
-    console.log("chamar uma função para editar - 1")
+    var id = document.getElementById('id');
+    fetch('/upperCase', {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: id.value
+      })
+   } ) .finally(
+    setTimeout(() => {
+      window.location.reload()
+
+    },25),alert("Nota modificada!")
+   )
   }
 
   function doLower(e) {
     var id = document.getElementById('id');
-    console.log("chamar uma função para editar - 2")
+    fetch('/lowerCase', {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: id.value
+      })
+   } ) .finally(
+    setTimeout(() => {
+      window.location.reload()
+
+    },25),alert("Nota modificada!")
+   )
   }
 
 </script>

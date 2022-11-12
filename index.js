@@ -61,3 +61,11 @@ app.patch('/save', function(req, res) {
 app.delete('/delete', function(req, res) {
     manager.deletarNota(req.body.id);
 })
+
+app.patch('/upperCase', function(req,res) {
+    manager.upperCaseText(req.body.id);
+})
+
+app.patch('/lowerCase', function(req,res){
+    manager.lowerCaseText(req.body.id);
+})
