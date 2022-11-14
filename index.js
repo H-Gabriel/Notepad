@@ -9,7 +9,7 @@ app.use(express.json());
 app.set("views", "./WebContent");
 app.set("view engine", "ejs");
 
-app.listen(4000, function(err) {
+app.listen(process.env.PORT || 4000, function(err) {
     if (err) {
         console.log("Erro ao iniciar o servidor.");
     } else {
